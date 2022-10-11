@@ -1,24 +1,6 @@
 # vue-happy-test
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run dev
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+本项目为作者实现前端具体功能期间，附带记录的笔记。主要是留作以后阅览。也顺带补充了一些网上很少见到的实现方式。请先耐心阅读本文，再行阅读代码。
+# 模块划分
+ 本文中，非特殊情况，view文件夹中的每个文件都代表了一个解决方案。<br>
+ 另外，项目执行时，启动的首页，也会对当前具备的所有功能笔记进行罗列。<br>
+ 
