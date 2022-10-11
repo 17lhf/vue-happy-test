@@ -1,0 +1,17 @@
+<template>
+  <div class="hello">
+    <div>
+      <span>通过文件上传的UI组件，展示前端解析数字证书：</span><router-link to="/parse-cert">点击前往</router-link>
+    </div>    
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'HomeView'
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
