@@ -8,11 +8,15 @@ import Router from './router'
 
 import { 
   Upload,
-  Icon
-} from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+  Icon,
+  Message,
+  Button
+} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Upload)
 Vue.use(Icon)
+Vue.use(Button)
+Vue.prototype.$message = Message
 
 Vue.config.productionTip = false
 

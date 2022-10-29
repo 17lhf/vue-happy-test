@@ -28,7 +28,7 @@
       }
     },
     methods: {
-      onChange(file) {
+      onChange (file) {
         // console.log(file.raw) // file.raw才是真实的文件对象，从中可以获取很多文件的信息
         let reader = new FileReader()
 
