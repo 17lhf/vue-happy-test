@@ -5,6 +5,9 @@
     </div>
     <div>
       <span>与后端对接的多文件上传：</span><router-link to="/upload-file">点击前往</router-link>
+    </div>
+    <div>
+      <span>Echart包装组件使用示例：</span><router-link to="/echart-use-example">点击前往</router-link>
     </div>  
   </div>
 </template>

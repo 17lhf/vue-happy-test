@@ -6,6 +6,9 @@ Vue.use(VueRouter)
 
 import Router from './router'
 
+// echarts示例需要的引入全局的配置
+import '@/view/echarts'
+
 import { 
   Upload,
   Icon,
