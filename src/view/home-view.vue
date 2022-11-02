@@ -8,7 +8,10 @@
     </div>
     <div>
       <span>Echart包装组件使用示例：</span><router-link to="/echart-use-example">点击前往</router-link>
-    </div>  
+    </div>
+    <div>
+      <span>Excel操作工具方法使用示例：</span><router-link to="/excel-use-example">点击前往</router-link>
+    </div> 
   </div>
 </template>
 

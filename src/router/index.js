@@ -3,6 +3,7 @@ import HomeView from '@/view/home-view.vue'
 import ParseCert from '@/view/parse-cert/parse-cert.vue'
 import UploadFile from '@/view/upload/upload-file.vue'
 import EchartUseExample from '@/view/echarts/use-example.vue'
+import ExcelUseExample from '@/view/excel/use-example.vue'
 
 const router = new VueRouter({
   routes: [
@@ -29,6 +30,11 @@ const router = new VueRouter({
     path: '/echart-use-example',
     name: 'EchartUseExample',
     component: EchartUseExample
+  },
+  {
+    path: '/excel-use-example',
+    name: 'ExcelUseExample',
+    component: ExcelUseExample
   }
   ]
 })
