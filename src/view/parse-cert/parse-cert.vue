@@ -23,8 +23,6 @@
   export default {
     data () {
       return {
-        uploadFileNum: '',
-        fileNameList: []
       }
     },
     methods: {
@@ -56,5 +54,4 @@
 </script>
 
 <style>
-
 </style>

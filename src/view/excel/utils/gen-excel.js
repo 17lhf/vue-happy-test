@@ -9,7 +9,7 @@ import * as XLSX from 'xlsx'
  * @param {*} sheetName 工作表的名称，一维数组表示，sheetName.length = data.length，每个数据表示一个工作表的名称
  * @param {*} fileName 最终输出的文件名，单个字符串
  */
-export function genOneSheetExcelFile (data, colWidth, rowHeight, sheetName, fileName) {
+export function genExcelFile (data, colWidth, rowHeight, sheetName, fileName) {
   // 创建book，即Excel一整个文档对应的对象
   let workBook = XLSX.utils.book_new()
 

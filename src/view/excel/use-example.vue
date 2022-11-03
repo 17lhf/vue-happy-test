@@ -4,25 +4,38 @@
     <p>注：官网文档路径：https://docs.sheetjs.com/docs/getting-started/example</p>
     <p>第一步：导入XLSX依赖 npm install xlsx@0.18.5 --save</p>
     <p>第二步：将要用到的工具方法引入</p>
-    <div>
-      <el-button type="primary" @click="genOneSheetExcel" :disabled="geningOneSheetExcel">生成单个sheet的excel文件</el-button>
+    <div class="expDiv">
+      <el-button type="primary" @click="genSheetExcel" :disabled="geningSheetExcel">生成N个sheet的excel文件</el-button>
+    </div>
+    <div class="expDiv">
+      <el-upload
+        class="uploadFile"
+        ref="upload"
+        drag
+        action="aa"
+        :on-change="onChange"
+        :auto-upload="false"> <!-- 文件只需要到达浏览器然后运算即可，不需要到达后端，所以这里不需要上传到某个地址, 也不需要自动上传到服务器 -->
+        <i class="el-icon-upload"></i>
+        <div class="el-upload__text">将要需要每个工作表的第一列的数据的Excel文件拖到此处，或<em>点击上传</em></div>
+        <div class="el-upload__tip line-height-none" slot="tip">推荐文件最大不超过10M</div>
+      </el-upload>
     </div>
   </div>
 </template>
 
 <script>
-import { genOneSheetExcelFile } from '@/view/excel/utils/gen-excel.js'
-// import { handleOnlyFirstColExcelFile } from '@/view/excel/utils/read-excel.js'
+import { genExcelFile } from '@/view/excel/utils/gen-excel.js'
+import { handleOnlyFirstColExcelFile } from '@/view/excel/utils/read-excel.js'
 export default {
   data () {
     return {
-      geningOneSheetExcel: false // true表示正在生成单个sheet的excel文件，禁止重复点击按钮
+      geningSheetExcel: false // true表示正在生成excel文件，禁止重复点击按钮
     }
   },
   methods: {
-    // 生成单个sheet的excel文件
-    genOneSheetExcel () {
-      this.geningOneSheetExcel = true
+    // 生成excel文件
+    genSheetExcel () {
+      this.geningSheetExcel = true
       // 开始构造测试数据生成Excel文件
       let data = []
       for (let i = 0; i < 2; i++) {
@@ -46,13 +59,25 @@ export default {
       let sheetName = ['第一个Sheet', '第二个Sheet']
       let fileName = 'N个表的Excel.xlsx'
       
-      genOneSheetExcelFile(data, colWidth, rowHeight, sheetName, fileName)
+      genExcelFile(data, colWidth, rowHeight, sheetName, fileName)
       // 文件生成完毕
-      this.geningOneSheetExcel = false
+      this.geningSheetExcel = false
+    },
+    // 进行excel文件数据的读取
+    onChange (file) {
+      // 只会读取每个工作表的第一列的数据
+      handleOnlyFirstColExcelFile(file).then(function (value) {
+        value.forEach(e => {
+          console.log(e)
+        })
+      })
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
+  .expDiv {
+    margin-bottom: 10px;
+  }
 </style>
