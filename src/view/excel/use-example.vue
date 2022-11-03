@@ -25,22 +25,27 @@ export default {
       this.geningOneSheetExcel = true
       // 开始构造测试数据生成Excel文件
       let data = []
-      let colNames = ['第一列', '第二列', '第三列']
-      let row1 = ['数据1', '数据2', '数据3']
-      let row2 = ['data1', 'data2', 'data3']
-      let row3 = ['值1', '值2', '值3']
-      let row4 = ['12345678901', '12345678901', '12345678901']
-      let row5 = ['2022/11/02 11:12:20', '2022/11/02 12:12:12', '2022/11/03 01:12:01']
-      data.push(colNames)
-      data.push(row1)
-      data.push(row2)
-      data.push(row3)
-      data.push(row4)
-      data.push(row5)
-      let colWidth = ['30', '40', '50']
-      let rowHeight = ['20', '25', '30', '35', '40', '45']
-      let sheetName = '第一个Sheet'
-      let fileName = '单Sheet的Excel.xlsx'
+      for (let i = 0; i < 2; i++) {
+        let dataItem = []
+        let colNames = ['第一列-' + i, '第二列-' + i, '第三列-' + i]
+        let row1 = ['数据1', '数据2', '数据3']
+        let row2 = ['data1', 'data2', 'data3']
+        let row3 = ['值1', '值2', '值3']
+        let row4 = ['12345678901', '12345678901', '12345678901']
+        let row5 = ['2022/11/02 11:12:20', '2022/11/02 12:12:12', '2022/11/03 01:12:01']
+        dataItem.push(colNames)
+        dataItem.push(row1)
+        dataItem.push(row2)
+        dataItem.push(row3)
+        dataItem.push(row4)
+        dataItem.push(row5)
+        data.push(dataItem)
+      }
+      let colWidth = [['30', '40', '50'], []]
+      let rowHeight = [[], ['20', '25', '30', '35', '40', '45']]
+      let sheetName = ['第一个Sheet', '第二个Sheet']
+      let fileName = 'N个表的Excel.xlsx'
+      
       genOneSheetExcelFile(data, colWidth, rowHeight, sheetName, fileName)
       // 文件生成完毕
       this.geningOneSheetExcel = false
