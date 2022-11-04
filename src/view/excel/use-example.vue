@@ -54,8 +54,10 @@ export default {
         dataItem.push(row5)
         data.push(dataItem)
       }
+      // 空数组表示不设置，那么最终的效果就是宽度/高度使用excel默认的
       let colWidth = [['30', '40', '50'], []]
       let rowHeight = [[], ['20', '25', '30', '35', '40', '45']]
+      
       let sheetName = ['第一个Sheet', '第二个Sheet']
       let fileName = 'N个表的Excel.xlsx'
       

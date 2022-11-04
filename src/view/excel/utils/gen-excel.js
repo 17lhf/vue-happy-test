@@ -3,7 +3,7 @@ import * as XLSX from 'xlsx'
 
 /**
  * 生成n个sheet的excel文件
- * @param {*} data 要写入的数据，以三维数组表示, 每个二维数组表示一个工作表的数据，每个一维数组表示一行数据, 默认第一行为列名
+ * @param {*} data 要写入的数据，以三维数组表示, 每个二维数组表示一个工作表的数据，每个一维数组表示一行数据, 默认第一行为列名。''空字符串表示具体某个单元格为空
  * @param {*} colWidth 列的宽度，以二维数组表示，colWidth.length = data.length，每个一维数组表示一个工作表的各个列的宽度，每个宽度的表示用数字就行，不要加px之类，可行的如：'100'
  * @param {*} rowHeight 行的高度，以二维数组表示，rowHeight.length = data.length，每个一维数组表示一个工作表的各个行的高度，每个高度的表示用数字就行，不要加px之类，可行的如：'100'
  * @param {*} sheetName 工作表的名称，一维数组表示，sheetName.length = data.length，每个数据表示一个工作表的名称
