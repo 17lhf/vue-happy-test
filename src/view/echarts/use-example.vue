@@ -130,7 +130,7 @@ export default {
   .echartDiv {
     background-color: #f8f0f0;
     margin-bottom: 20px;
-    width: 700px;
+    width: 50%;
     height: 600px;
   }
 </style>

@@ -22,7 +22,7 @@ export default {
     let _this = this
     window.addEventListener('resize', function () {
       // 先做判定，避免还未实例化就被调用
-      if (this.myChart !== null && this.myChart !== '' && this.myChart !== undefined) {
+      if (_this.myChart !== null && _this.myChart !== '' && _this.myChart !== undefined) {
         _this.myChart.resize()
       }
     })
