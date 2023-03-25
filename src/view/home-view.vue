@@ -15,6 +15,9 @@
     <div>
       <span>样式穿透示例：</span><router-link to="/style-penetrate-example">点击前往</router-link>
     </div>
+    <div>
+      <span>拖拽示例：</span><router-link to="/draggable-example">点击前往</router-link>
+    </div>
   </div>
 </template>
 

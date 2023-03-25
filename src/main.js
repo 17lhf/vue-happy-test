@@ -18,7 +18,9 @@ import {
   Dialog,
   MessageBox,
   Select,
-  Option
+  Option,
+  CheckboxGroup,
+  Checkbox
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Upload)
@@ -27,6 +29,8 @@ Vue.use(Button)
 Vue.use(Dialog)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox
 Vue.prototype.$alert = MessageBox.alert

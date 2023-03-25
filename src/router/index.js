@@ -5,6 +5,7 @@ import UploadFile from '@/view/upload/upload-file.vue'
 import EchartUseExample from '@/view/echarts/use-example.vue'
 import ExcelUseExample from '@/view/excel/use-example.vue'
 import StylePenetrateExample from "@/view/style-penetrate/style-penetrate-example.vue"
+import DraggableExample from '@/view/draggable/draggable-example.vue'
 
 const router = new VueRouter({
   routes: [
@@ -41,6 +42,11 @@ const router = new VueRouter({
     path: '/style-penetrate-example',
     name: 'StylePenetrateExample',
     component: StylePenetrateExample
+  },
+  {
+    path: '/draggable-example',
+    name: 'DraggableExample',
+    component: DraggableExample
   }
   ]
 })
