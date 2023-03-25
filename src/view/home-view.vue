@@ -11,7 +11,10 @@
     </div>
     <div>
       <span>Excel操作工具方法使用示例：</span><router-link to="/excel-use-example">点击前往</router-link>
-    </div> 
+    </div>
+    <div>
+      <span>样式穿透示例：</span><router-link to="/style-penetrate-example">点击前往</router-link>
+    </div>
   </div>
 </template>
 

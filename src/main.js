@@ -9,17 +9,29 @@ import Router from './router'
 // echarts示例需要的引入全局的配置
 import '@/view/echarts'
 
+// element-UI组件按需引入
 import { 
   Upload,
   Icon,
   Message,
-  Button
+  Button,
+  Dialog,
+  MessageBox,
+  Select,
+  Option
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Upload)
 Vue.use(Icon)
 Vue.use(Button)
+Vue.use(Dialog)
+Vue.use(Select)
+Vue.use(Option)
 Vue.prototype.$message = Message
+Vue.prototype.$msgbox = MessageBox
+Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
 
 Vue.config.productionTip = false
 
