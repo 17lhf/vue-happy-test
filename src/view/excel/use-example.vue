@@ -7,16 +7,31 @@
     <div class="expDiv">
       <el-button type="primary" @click="genSheetExcel" :disabled="geningSheetExcel">生成N个sheet的excel文件</el-button>
     </div>
+
     <div class="expDiv">
       <el-upload
         class="uploadFile"
         ref="upload"
         drag
         action="aa"
-        :on-change="onChange"
+        :on-change="onOnlyFirstColChange"
         :auto-upload="false"> <!-- 文件只需要到达浏览器然后运算即可，不需要到达后端，所以这里不需要上传到某个地址, 也不需要自动上传到服务器 -->
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">将要需要每个工作表的第一列的数据的Excel文件拖到此处，或<em>点击上传</em></div>
+        <div class="el-upload__tip line-height-none" slot="tip">推荐文件最大不超过10M</div>
+      </el-upload>
+    </div>
+
+    <div class="expDiv">
+      <el-upload
+        class="uploadFile"
+        ref="upload"
+        drag
+        action="aa"
+        :on-change="onSpecifiesRangeColChange"
+        :auto-upload="false"> <!-- 文件只需要到达浏览器然后运算即可，不需要到达后端，所以这里不需要上传到某个地址, 也不需要自动上传到服务器 -->
+        <i class="el-icon-upload"></i>
+        <div class="el-upload__text">将需要读取每个工作表的指定范围列的数据的Excel文件拖到此处（这里默认读取第3列到第5列），或<em>点击上传</em></div>
         <div class="el-upload__tip line-height-none" slot="tip">推荐文件最大不超过10M</div>
       </el-upload>
     </div>
@@ -25,7 +40,7 @@
 
 <script>
 import { genExcelFile } from '@/view/excel/utils/gen-excel.js'
-import { handleOnlyFirstColExcelFile } from '@/view/excel/utils/read-excel.js'
+import { handleOnlyFirstColExcelFile, handleSpecifiesRangeColExcelFile } from '@/view/excel/utils/read-excel.js'
 export default {
   data () {
     return {
@@ -65,10 +80,17 @@ export default {
       // 文件生成完毕
       this.geningSheetExcel = false
     },
-    // 进行excel文件数据的读取
-    onChange (file) {
-      // 只会读取每个工作表的第一列的数据
+    // 进行读取每个工作表的第一列的数据
+    onOnlyFirstColChange (file) {
       handleOnlyFirstColExcelFile(file).then(function (value) {
+        value.forEach(e => {
+          console.log(e)
+        })
+      })
+    },
+    // 进行读取每个工作表的指定范围列的数据
+    onSpecifiesRangeColChange (file) {
+      handleSpecifiesRangeColExcelFile(file, 2, 4).then(function (value) {
         value.forEach(e => {
           console.log(e)
         })
