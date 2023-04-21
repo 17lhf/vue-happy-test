@@ -13,6 +13,10 @@ import * as XLSX from 'xlsx'
     let fileReader = new FileReader()
     fileReader.onload = (e) => {
       let data = e.target.result
+      // 0.14.3读取大数字时，默认数字会变成科学计数法的字符串问题解决（如：123456780000090会变成1.23457E+14）
+      // 但是这样的话，如果原本是用科学计数法表示，因为强制要求遵循原文，所以读取出来也会是科学计数法
+      // let workBook = XLSX.read(data, {type: 'binary', raw: true})
+      // 0.18.5读取大数字时，默认数字不会变成科学计数法的字符串，即便是用科学计数法表示的字符串，也会变成数字形式
       let workBook = XLSX.read(data, {type: 'binary'})
       // console.log(workBook)
       let firstColData = []

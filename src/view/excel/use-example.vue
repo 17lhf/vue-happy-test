@@ -2,6 +2,7 @@
   <div>
     <h1>Excel表格文件操作示例</h1>
     <p>注：官网文档路径：https://docs.sheetjs.com/docs/getting-started/example</p>
+    <p>更新日志（GitHub仓库的CHANGELOG.md文件）：https://github.com/SheetJS/sheetjs/blob/github/CHANGELOG.md</p>
     <p>第一步：导入XLSX依赖 npm install xlsx@0.18.5 --save</p>
     <p>第二步：将要用到的工具方法引入</p>
     <div class="expDiv">
