@@ -1,7 +1,9 @@
 import Vue from 'vue'
 
 // element-UI组件按需引入
-import { 
+import {
+  Form,
+  FormItem,
   Upload,
   Icon,
   Message,
@@ -11,10 +13,15 @@ import {
   Select,
   Option,
   CheckboxGroup,
-  Checkbox
+  Checkbox,
+  Collapse,
+  CollapseItem,
+  Input
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+Vue.use(Form)
+Vue.use(FormItem)
 Vue.use(Upload)
 Vue.use(Icon)
 Vue.use(Button)
@@ -23,6 +30,9 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(Checkbox)
 Vue.use(CheckboxGroup)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
+Vue.use(Input)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox

@@ -18,6 +18,9 @@
     <div>
       <span>拖拽示例：</span><router-link to="/draggable-example">点击前往</router-link>
     </div>
+    <div>
+      <span>Element-UI组件定制化示例：</span><router-link to="/element-ui-customize">点击前往</router-link>
+    </div>
   </div>
 </template>
 

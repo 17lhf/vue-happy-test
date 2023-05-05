@@ -6,6 +6,7 @@ import EchartUseExample from '@/view/echarts/use-example.vue'
 import ExcelUseExample from '@/view/excel/use-example.vue'
 import StylePenetrateExample from "@/view/style-penetrate/style-penetrate-example.vue"
 import DraggableExample from '@/view/draggable/draggable-example.vue'
+import ElementUiCustomize from '@/view/element-ui-customize/main-page.vue'
 
 const router = new VueRouter({
   routes: [
@@ -47,6 +48,11 @@ const router = new VueRouter({
     path: '/draggable-example',
     name: 'DraggableExample',
     component: DraggableExample
+  },
+  {
+    path: '/element-ui-customize',
+    name: 'ElementUiCustomize',
+    component: ElementUiCustomize
   }
   ]
 })
