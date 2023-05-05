@@ -29,4 +29,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .hello div {
+    margin-bottom: 10px;
+  }
 </style>
