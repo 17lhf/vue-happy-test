@@ -103,7 +103,7 @@ export default {
 }
 .optimize-form >>> .el-form-item__content .el-form-item__error {
   position: static !important;
-  text-align: left;
-  line-height: normal !important;
+  text-align: left; /* 因为样式会继承父组件样式，可能会导致出问题，所以这里进行统一限制 */
+  line-height: normal !important; /* 因为样式会继承父组件样式，可能会导致出问题，所以这里进行统一限制 */
 }
 </style>
