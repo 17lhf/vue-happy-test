@@ -13,7 +13,7 @@
       <span>Excel操作工具方法使用示例：</span><router-link to="/excel-use-example">点击前往</router-link>
     </div>
     <div>
-      <span>样式穿透示例：</span><router-link to="/style-penetrate-example">点击前往</router-link>
+      <span>样式定制主页面：</span><router-link to="/style-home">点击前往</router-link>
     </div>
     <div>
       <span>拖拽示例：</span><router-link to="/draggable-example">点击前往</router-link>

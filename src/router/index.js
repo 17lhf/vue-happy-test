@@ -4,7 +4,7 @@ import ParseCert from '@/view/parse-cert/parse-cert.vue'
 import UploadFile from '@/view/upload/upload-file.vue'
 import EchartUseExample from '@/view/echarts/use-example.vue'
 import ExcelUseExample from '@/view/excel/use-example.vue'
-import StylePenetrateExample from "@/view/style-penetrate/style-penetrate-example.vue"
+import StyleHome from '@/view/style-customize/style-home.vue'
 import DraggableExample from '@/view/draggable/draggable-example.vue'
 import ElementUiCustomize from '@/view/element-ui-customize/main-page.vue'
 
@@ -40,9 +40,9 @@ const router = new VueRouter({
     component: ExcelUseExample
   },
   {
-    path: '/style-penetrate-example',
-    name: 'StylePenetrateExample',
-    component: StylePenetrateExample
+    path: '/style-home',
+    name: 'StyleHome',
+    component: StyleHome
   },
   {
     path: '/draggable-example',
