@@ -5,9 +5,9 @@
         <style-penetrate-example></style-penetrate-example>
       </el-collapse-item>
 
-      <el-collapse-item title="滑动条样式优化" name="2">
-        <div></div>
-        <div></div>
+      <el-collapse-item title="滑动条样式优化" name="style-embellish">
+        <div>说明: 当前测试发现，在Edge114.0.1823.43中，横向滚动条样式无效 </div>
+        <scrollbar-embellish></scrollbar-embellish>
       </el-collapse-item>
 
       <el-collapse-item title="待补充3" name="3">
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import ScrollbarEmbellish from './scrollbar-new/scrollbar-embellish.vue'
 import StylePenetrateExample from './style-penetrate/style-penetrate-example.vue'
 export default {
   data() {
@@ -31,6 +32,7 @@ export default {
     }
   },
   components: {
+    ScrollbarEmbellish,
     StylePenetrateExample
   }
 }

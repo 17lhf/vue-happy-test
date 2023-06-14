@@ -16,7 +16,9 @@ import {
   Checkbox,
   Collapse,
   CollapseItem,
-  Input
+  Input,
+  Table,
+  TableColumn
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -33,6 +35,8 @@ Vue.use(CheckboxGroup)
 Vue.use(Collapse)
 Vue.use(CollapseItem)
 Vue.use(Input)
+Vue.use(Table)
+Vue.use(TableColumn)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox
