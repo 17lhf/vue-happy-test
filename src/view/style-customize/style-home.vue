@@ -6,7 +6,6 @@
       </el-collapse-item>
 
       <el-collapse-item title="滑动条样式优化" name="style-embellish">
-        <div>说明: 当前测试发现，在Edge114.0.1823.43中，横向滚动条样式无效 </div>
         <scrollbar-embellish></scrollbar-embellish>
       </el-collapse-item>
 
