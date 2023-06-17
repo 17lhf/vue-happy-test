@@ -3,20 +3,19 @@
   <div>
     <el-collapse v-model="activeName" accordion>
 
-      <el-collapse-item title="表单错误提示信息适应小屏幕(如果没看出区别，则需要把屏幕宽度缩小到报错信息出现换行)" name="valid-error-msg-optimize">
+      <el-collapse-item title="表单错误提示信息适应小屏幕(如果没看出区别，则需要把屏幕宽度缩小到报错信息出现换行)" name="validErrorMsgOptimize">
         <div>
           <div>优化前：</div>
-          <div><valid-error-msg-orignal></valid-error-msg-orignal></div>
+          <valid-error-msg-orignal></valid-error-msg-orignal>
         </div>
         <div>
           <div>优化后：</div>
-          <div><valid-error-msg-optimize></valid-error-msg-optimize></div>
+          <valid-error-msg-optimize></valid-error-msg-optimize>
         </div>
       </el-collapse-item>
 
-      <el-collapse-item title="待补充2" name="2">
-        <div></div>
-        <div></div>
+      <el-collapse-item title="级联选择器使用示例" name="normalCascader">
+        <normal-cascader></normal-cascader>
       </el-collapse-item>
 
       <el-collapse-item title="待补充3" name="3">
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+import NormalCascader from './cascader/normal-cascader.vue'
 import ValidErrorMsgOptimize from './form/valid-error-msg-optimize.vue'
 import ValidErrorMsgOrignal from './form/valid-error-msg-orignal.vue'
 export default {
@@ -44,11 +44,11 @@ export default {
   },
   components: {
     ValidErrorMsgOptimize,
-    ValidErrorMsgOrignal
+    ValidErrorMsgOrignal,
+    NormalCascader
   }
 }
 </script>
 
 <style>
-
 </style>

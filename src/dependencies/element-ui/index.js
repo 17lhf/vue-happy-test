@@ -18,7 +18,8 @@ import {
   CollapseItem,
   Input,
   Table,
-  TableColumn
+  TableColumn,
+  Cascader
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -37,6 +38,7 @@ Vue.use(CollapseItem)
 Vue.use(Input)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Cascader)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox
