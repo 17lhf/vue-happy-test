@@ -18,10 +18,12 @@
         <normal-cascader></normal-cascader>
       </el-collapse-item>
 
-      <el-collapse-item title="待补充3" name="3">
-        <div></div>
-        <div></div>
-        <div></div>
+      <el-collapse-item title="封装自定义的Select组件" name="customizeSelect">
+        <div>disabled使用默认值，其他正常传值</div>
+        <customize-select v-model="selectedValue" :options="options" :placeholder="placeholder"></customize-select>
+        <el-button @click="viewSelectedValue">查看当前选中的值</el-button>
+        <div>全部正常传值</div>
+        <customize-select v-model="selectedValue" :disabled="true" :options="options" :placeholder="placeholder"></customize-select>
       </el-collapse-item>
 
       <el-collapse-item title="待补充4" name="4">
@@ -36,16 +38,35 @@
 import NormalCascader from './cascader/normal-cascader.vue'
 import ValidErrorMsgOptimize from './form/valid-error-msg-optimize.vue'
 import ValidErrorMsgOrignal from './form/valid-error-msg-orignal.vue'
+import CustomizeSelect from './select/customize-select.vue'
 export default {
   data() {
     return {
-      activeName: ''
+      activeName: '',
+      options: [{
+          value: 'Beijing',
+          label: '北京'
+        }, {
+          value: 'Shanghai',
+          label: '上海'
+        }, {
+          value: 'Nanjing',
+          label: '南京'
+        }],
+      selectedValue: '',
+      placeholder: 'Test placeholder'
     }
   },
   components: {
     ValidErrorMsgOptimize,
     ValidErrorMsgOrignal,
-    NormalCascader
+    NormalCascader,
+    CustomizeSelect
+  },
+  methods: {
+    viewSelectedValue() {
+      console.log('selectedValue: ' + this.selectedValue)
+    }
   }
 }
 </script>
