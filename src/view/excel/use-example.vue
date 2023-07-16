@@ -3,6 +3,7 @@
     <h1>Excel表格文件操作示例</h1>
     <p>注：官网文档路径：https://docs.sheetjs.com/docs/getting-started/example</p>
     <p>更新日志（GitHub仓库的CHANGELOG.md文件）：https://github.com/SheetJS/sheetjs/blob/github/CHANGELOG.md</p>
+    <p>中文翻译后的文档路径：https://geekdaxue.co/read/SheetJS-docs-zh/README.md#d6qsit</p>
     <p>第一步：导入XLSX依赖 npm install xlsx@0.18.5 --save</p>
     <p>第二步：将要用到的工具方法引入</p>
     <div class="expDiv">
@@ -18,7 +19,7 @@
         :on-change="onOnlyFirstColChange"
         :auto-upload="false"> <!-- 文件只需要到达浏览器然后运算即可，不需要到达后端，所以这里不需要上传到某个地址, 也不需要自动上传到服务器 -->
         <i class="el-icon-upload"></i>
-        <div class="el-upload__text">将要需要每个工作表的第一列的数据的Excel文件拖到此处，或<em>点击上传</em></div>
+        <div class="el-upload__text">将需要每个工作表的第一列的数据的Excel文件拖到此处，或<em>点击上传</em></div>
         <div class="el-upload__tip line-height-none" slot="tip">推荐文件最大不超过10M</div>
       </el-upload>
     </div>

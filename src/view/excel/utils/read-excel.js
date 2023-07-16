@@ -31,7 +31,7 @@ import * as XLSX from 'xlsx'
         console.log('工作表行数：' + sheetJson.length)
         // 获取标题行（SheetJson已经自动将第一行作为标题行了，这里是随便拿一项获取key值）
         let keys = Object.keys(sheetJson[0])
-        // console.log(keys)
+        console.log(keys[0])
         for (let i = 0; i < sheetJson.length; i++) {
           firstColData.push(sheetJson[i][keys[0]])
         }
@@ -83,6 +83,40 @@ import * as XLSX from 'xlsx'
         }
       }
       resolve(resultData)
+    }
+    fileReader.readAsBinaryString(file.raw)
+  })
+}
+
+/**
+ * 解析Excel里所有可能附带的数据（这里主要做作为示例目的）
+ * 建议附带阅读官方文档说明
+ * @param {*} file 文件对象
+ */
+export function handleExcelAllDataFile (file) {
+  // 异步处理
+  return new Promise(function (resolve) {
+    // 将文件读取成workbook对象
+    let fileReader = new FileReader()
+    fileReader.onload = (e) => {
+      let data = e.target.result
+      let workBook = XLSX.read(data, {type: 'binary'})
+      console.log(workBook)
+      // 遍历每个工作表来获取数据
+      for (let sheetName in workBook.Sheets) {
+        // 依据获取到的工作表的名称来获取工作表信息对象
+        let sheet = workBook.Sheets[sheetName]
+        console.log(sheet) // 此时你会发现，sheet其实附带了很多数据信息
+        // 使用 XLSX.utils.sheet_to_json(sheet) 其实就会丢失很多信息
+        for(var R = range.s.r; R <= range.e.r; ++R) {
+          for(var C = range.s.c; C <= range.e.c; ++C) {
+            var cell_address = {c:C, r:R};
+            /* if an A1-style address is needed, encode the address */
+            var cell_ref = XLSX.utils.encode_cell(cell_address);
+          }
+        }
+      }
+      resolve('parser over')
     }
     fileReader.readAsBinaryString(file.raw)
   })
