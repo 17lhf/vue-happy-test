@@ -37,12 +37,26 @@
         <div class="el-upload__tip line-height-none" slot="tip">推荐文件最大不超过10M</div>
       </el-upload>
     </div>
+
+    <div class="expDiv">
+      <el-upload
+        class="uploadFile"
+        ref="upload"
+        drag
+        action="aa"
+        :on-change="excelAllDataParse"
+        :auto-upload="false"> <!-- 文件只需要到达浏览器然后运算即可，不需要到达后端，所以这里不需要上传到某个地址, 也不需要自动上传到服务器 -->
+        <i class="el-icon-upload"></i>
+        <div class="el-upload__text">解析Excel里所有可能附带的数据（这里主要做作为示例目的），或<em>点击上传</em></div>
+        <div class="el-upload__tip line-height-none" slot="tip">推荐文件最大不超过10M</div>
+      </el-upload>
+    </div>
   </div>
 </template>
 
 <script>
 import { genExcelFile } from '@/view/excel/utils/gen-excel.js'
-import { handleOnlyFirstColExcelFile, handleSpecifiesRangeColExcelFile } from '@/view/excel/utils/read-excel.js'
+import { handleOnlyFirstColExcelFile, handleSpecifiesRangeColExcelFile, handleExcelAllDataFile } from '@/view/excel/utils/read-excel.js'
 export default {
   data () {
     return {
@@ -96,6 +110,12 @@ export default {
         value.forEach(e => {
           console.log(e)
         })
+      })
+    },
+    // 解析Excel里所有可能附带的数据
+    excelAllDataParse (file) {
+      handleExcelAllDataFile(file).then(function (value) {
+        console.log(value)
       })
     }
   }

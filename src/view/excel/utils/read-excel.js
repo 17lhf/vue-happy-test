@@ -101,18 +101,39 @@ export function handleExcelAllDataFile (file) {
     fileReader.onload = (e) => {
       let data = e.target.result
       let workBook = XLSX.read(data, {type: 'binary'})
+      // 这里可以读取到很多Excel文件相关的信息,比如最后编辑者和时间
+      console.log('workBook: ')
       console.log(workBook)
       // 遍历每个工作表来获取数据
       for (let sheetName in workBook.Sheets) {
         // 依据获取到的工作表的名称来获取工作表信息对象
         let sheet = workBook.Sheets[sheetName]
+        console.log('sheet: ')
         console.log(sheet) // 此时你会发现，sheet其实附带了很多数据信息
         // 使用 XLSX.utils.sheet_to_json(sheet) 其实就会丢失很多信息
-        for(var R = range.s.r; R <= range.e.r; ++R) {
-          for(var C = range.s.c; C <= range.e.c; ++C) {
-            var cell_address = {c:C, r:R};
-            /* if an A1-style address is needed, encode the address */
-            var cell_ref = XLSX.utils.encode_cell(cell_address);
+        let range = XLSX.utils.decode_range(sheet['!ref']) // 转换单元格的范围
+        console.log("sheet['!ref']: ")
+        console.log(sheet['!ref'])
+        console.log('range: ')
+        console.log(range) // 转换后得到的单元格范围，包含行的范围和列的范围
+        let dense = sheet['!data'] != null // 检测是否有!data这个字段数据，有无这个字段数据，获取单元格数据的方式不一样
+        console.log('dense: ' + dense)
+        for(let R = range.s.r; R <= range.e.r; ++R) { // R=Row,行号，从0开始计数
+          for(let C = range.s.c; C <= range.e.c; ++C) { // C=Col，列号，从0开始计数
+            let cellAddr = {c:C, r:R} // 单元格地址对象的存储格式为{c:C, r:R}，其中C和R分别代表的是0索引列和行号。
+            console.log('cellAddr: ')
+            console.log(cellAddr)
+            let cellRef = XLSX.utils.encode_cell(cellAddr) // encode_cell可以把{c:1, r:2} 转换成 B3
+            console.log('cellRef: ' + cellRef)
+            let cell = dense ? sheet['!data'][R][C] : sheet[cellRef]
+            // cell实际上是一个单元格对象，拥有好几个key和value的对应关系，有需要可以查阅官方文档
+            console.log('cell: ')
+            console.log(cell)
+            // 如果这个单元格没输入过值，就会是undefined
+            if (cell != undefined) {
+              console.log('cell.w: ' + cell.w) // w是格式化后的文本（实测好像有点问题，格式化文本：1.2w（原始值：12345，单元格格式：#!.#,"万"）会被解析成.12w ?）
+              console.log('cell.v: ' + cell.v) // v是原始值,可以获得单元格最原始的值，而非格式化后的文本（这个也是sheet_to_json后会获得的value）
+            }
           }
         }
       }
