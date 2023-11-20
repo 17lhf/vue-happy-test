@@ -7,6 +7,7 @@ import ExcelUseExample from '@/view/excel/use-example.vue'
 import StyleHome from '@/view/style-customize/style-home.vue'
 import DraggableExample from '@/view/draggable/draggable-example.vue'
 import ElementUiCustomize from '@/view/element-ui-customize/main-page.vue'
+import Backend from '@/view/backend/backend-home.vue'
 
 const router = new VueRouter({
   routes: [
@@ -53,6 +54,11 @@ const router = new VueRouter({
     path: '/element-ui-customize',
     name: 'ElementUiCustomize',
     component: ElementUiCustomize
+  },
+  {
+    path: '/backend',
+    name: 'Backend',
+    component: Backend
   }
   ]
 })
