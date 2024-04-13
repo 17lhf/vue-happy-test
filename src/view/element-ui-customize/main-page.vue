@@ -26,9 +26,8 @@
         <customize-select v-model="selectedValue" :disabled="true" :options="options" :placeholder="placeholder"></customize-select>
       </el-collapse-item>
 
-      <el-collapse-item title="待补充4" name="4">
-        <div></div>
-        <div></div>
+      <el-collapse-item title="日期选择器 disabledDate 传参" name="4">
+        <data-picker-disabled-date />
       </el-collapse-item>
     </el-collapse>
   </div>
@@ -36,6 +35,7 @@
 
 <script>
 import NormalCascader from './cascader/normal-cascader.vue'
+import DataPickerDisabledDate from './datePicker/data-picker-disabled-date.vue'
 import ValidErrorMsgOptimize from './form/valid-error-msg-optimize.vue'
 import ValidErrorMsgOrignal from './form/valid-error-msg-orignal.vue'
 import CustomizeSelect from './select/customize-select.vue'
@@ -61,7 +61,8 @@ export default {
     ValidErrorMsgOptimize,
     ValidErrorMsgOrignal,
     NormalCascader,
-    CustomizeSelect
+    CustomizeSelect,
+    DataPickerDisabledDate
   },
   methods: {
     viewSelectedValue() {
