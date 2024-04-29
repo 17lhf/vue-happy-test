@@ -24,6 +24,9 @@
     <div>
       <span>后端一些测试实例所需的前端内容：</span><router-link to="/backend">点击前往</router-link>
     </div>
+    <div>
+      <span>动画示例：</span><router-link to="/animation">点击前往</router-link>
+    </div>
   </div>
 </template>
 

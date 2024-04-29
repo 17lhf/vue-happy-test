@@ -8,6 +8,7 @@ import StyleHome from '@/view/style-customize/style-home.vue'
 import DraggableExample from '@/view/draggable/draggable-example.vue'
 import ElementUiCustomize from '@/view/element-ui-customize/main-page.vue'
 import Backend from '@/view/backend/backend-home.vue'
+import Animation from '@/view/animation/animation-home.vue'
 
 const router = new VueRouter({
   routes: [
@@ -59,6 +60,11 @@ const router = new VueRouter({
     path: '/backend',
     name: 'Backend',
     component: Backend
+  },
+  {
+    path: '/animation',
+    name: 'Animation',
+    component: Animation
   }
   ]
 })
