@@ -33,6 +33,7 @@
         // 定义证书对象
         let cert = new X509()
 
+        // onload：文件读取成功完成后触发
         reader.onload = function () {
           // 这里的reader.result就是文件的文本格式内容
           // console.log(reader.result)
@@ -47,6 +48,9 @@
             }
           )
         }
+
+        // 以文本形式读取，第二个参数是文本的编码方式，默认值为 UTF-8
+        // 读取为异步的
         reader.readAsText(file.raw)
       }
     }
