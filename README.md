@@ -29,6 +29,15 @@ eslint代码风格规范要求，除了根组件（App.vue）以外，其他自�
 
 axios在IE浏览器中存在兼容性问题，如果是0.17.1，可以不做配置直接使用。如果是很新的版本(具体哪个版本开始未知)，则可能会出现IE SCRIPT1010: 缺少标识符 app.js、“promise"未定义等问题
 
+### 4 nodejs
+
+- [版本发布日志](https://nodejs.org/en/about/previous-releases)
+  
+### 5 webpack
+
+- 查看最新版本命令：npm info webpack
+- 查看当前项目依赖的版本：node_modules目录下找到webpack目录，查看package.json文件里的版本号
+
 ## 包含内容
 
 ### 1 前端进行密码学操作

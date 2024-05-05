@@ -20,6 +20,7 @@
 
 <script>
   import { X509 } from 'jsrsasign'
+  // import { Certificate } from 'crypto'
   export default {
     data () {
       return {
@@ -47,6 +48,11 @@
             console.log('ds: ' + e[0].ds + ', type: ' + e[0].type + ', value: ' + e[0].value)
             }
           )
+
+          // todo 理论上nodejs有自带，但是似乎webpack默认不引入相关依赖，需要解决依赖问题，不能简单直接使用，似乎不如引入外部库方便
+          // nodejs 自带的 crypto模块 处理证书
+          // let publicKey = Certificate.exportPublicKey(reader.result);
+          // console.log('nodejs的crypto解析出来的公钥：\n' + publicKey);
         }
 
         // 以文本形式读取，第二个参数是文本的编码方式，默认值为 UTF-8
