@@ -50,6 +50,7 @@
           )
 
           // todo 理论上nodejs有自带，但是似乎webpack默认不引入相关依赖，需要解决依赖问题，不能简单直接使用，似乎不如引入外部库方便
+          // 实测如果是webpack3就不会报错
           // nodejs 自带的 crypto模块 处理证书
           // let publicKey = Certificate.exportPublicKey(reader.result);
           // console.log('nodejs的crypto解析出来的公钥：\n' + publicKey);
