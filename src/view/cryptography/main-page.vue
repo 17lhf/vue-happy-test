@@ -7,7 +7,7 @@
         <parse-cert></parse-cert>
       </el-collapse-item>
 
-      <el-collapse-item title="通过spark-md5计算md5" name="md5">
+      <el-collapse-item title="crypto-js计算hash值" name="cryptojs">
         <crypto-js></crypto-js>
       </el-collapse-item>
 
@@ -17,7 +17,7 @@
 
 <script>
 import ParseCert from '@/view/cryptography/parse-cert/parse-cert.vue'
-import cryptoJs from '@/view/cryptography/hash/crypto-js.vue';
+import cryptoJs from '@/view/cryptography/hash/crypto-js.vue'
 export default {
   data() {
     return {
