@@ -21,7 +21,9 @@ import {
   TableColumn,
   Cascader,
   Pagination,
-  DatePicker
+  DatePicker,
+  Radio,
+  RadioGroup
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -43,6 +45,8 @@ Vue.use(TableColumn)
 Vue.use(Cascader)
 Vue.use(Pagination)
 Vue.use(DatePicker)
+Vue.use(Radio)
+Vue.use(RadioGroup)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox

@@ -17,7 +17,7 @@
 
 <script>
 import ParseCert from '@/view/cryptography/parse-cert/parse-cert.vue'
-import cryptoJs from '@/view/cryptography/hash/crypto-js.vue'
+import CryptoJs from '@/view/cryptography/hash/crypto-js.vue'
 export default {
   data() {
     return {
@@ -26,7 +26,7 @@ export default {
   },
   components: {
     ParseCert,
-    cryptoJs
+    CryptoJs
   },
   methods: {
   }

@@ -27,6 +27,9 @@
     <div>
       <span>动画示例：</span><router-link to="/animation">点击前往</router-link>
     </div>
+    <div>
+      <span>文件操作示例：</span><router-link to="/fileShow">点击前往</router-link>
+    </div>
   </div>
 </template>
 

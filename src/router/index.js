@@ -9,6 +9,7 @@ import DraggableExample from '@/view/draggable/draggable-example.vue'
 import ElementUiCustomize from '@/view/element-ui-customize/main-page.vue'
 import Backend from '@/view/backend/backend-home.vue'
 import Animation from '@/view/animation/animation-home.vue'
+import FileShow from '@/view/file/main-page.vue'
 
 const router = new VueRouter({
   routes: [
@@ -65,6 +66,11 @@ const router = new VueRouter({
     path: '/animation',
     name: 'Animation',
     component: Animation
+  },
+  {
+    path: '/fileShow',
+    name: 'FileShow',
+    component: FileShow
   }
   ]
 })
