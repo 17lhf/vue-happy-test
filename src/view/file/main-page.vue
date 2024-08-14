@@ -7,8 +7,9 @@
         <file-save-show></file-save-show>
       </el-collapse-item>
 
-      <!-- <el-collapse-item title="" name="">
-      </el-collapse-item> -->
+      <el-collapse-item title="读取ANSI文件" name="readAnsi">
+        <read-ansi></read-ansi>
+      </el-collapse-item>
 
     </el-collapse>
   </div>
@@ -16,6 +17,7 @@
 
 <script>
 import FileSaveShow from './file-save/file-save-show.vue'
+import ReadAnsi from './parse-file/read-ansi.vue'
 export default {
   data() {
     return {
@@ -23,7 +25,8 @@ export default {
     }
   },
   components: {
-    FileSaveShow
+    FileSaveShow,
+    ReadAnsi
   },
   methods: {
   }
