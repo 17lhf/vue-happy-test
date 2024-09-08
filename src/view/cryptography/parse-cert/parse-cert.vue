@@ -2,7 +2,7 @@
   <div class="parseCert">
     <h1>本页面为展示如何在前端解析证书</h1>
     <p>第一步（安装库，网站参考：http://www.npmdoc.org/jsrsasignzhongwenwendangjsrsasign-jszhongwenjiaochengjiexi.html）：<B>npm i jsrsasign</B></p>
-    <p>第二步（阅读API文档，找到你想要的方法）：https://kjur.github.io/jsrsasign/api/index.html</p>
+    <p>第二步（阅读API文档，找到你想要的方法）：http://kjur.github.io/jsrsasign/api/symbols/X509.html</p>
     <p>第三步：仔细阅读本示例代码及注释内容</p>
     <el-upload
       class="uploadFile"
@@ -20,7 +20,6 @@
 
 <script>
   import { X509 } from 'jsrsasign'
-  // import { Certificate } from 'crypto'
   export default {
     data () {
       return {
@@ -41,19 +40,60 @@
 
           // 将PEM格式的证书数据读取到证书对象中
           // 经过测试，这个读取pem格式证书的方法，也支持读取 附带有证书内容的PEM格式证书
+          // 注意：如果证书文件里放了多本证书内容，则会读取最上面那一本（可能），所以解析时请保留文件内容里只有一个证书内容，以避免读取数据错误
           cert.readCertPEM(reader.result)
-          // 打印证书的subject各个字段信息
-          // ds表示编码格式，type表示是哪个字段，value表示字段的值
+
+          // 证书版本号，1=X509v1没有扩展字段，3=X509v3才有扩展字段
+          let certVersion = cert.getVersion()
+          console.log('Cert version:' + certVersion)
+          console.log('')
+
+          // 打印证书的序列号
+          console.log('Serial Number: ' + cert.getSerialNumberHex())
+          console.log('')
+
+          // 打印证书的issuer信息
+          console.log('Issuer: ' + cert.getIssuerString())
+          console.log('')
+
+          // 打印证书的subject信息
+          console.log('Subject: ' + cert.getSubjectString())
           cert.getSubject().array.forEach(e => {
+            // ds表示编码格式，type表示是哪个字段，value表示字段的值
             console.log('ds: ' + e[0].ds + ', type: ' + e[0].type + ', value: ' + e[0].value)
             }
           )
+          console.log('')
 
-          // todo 理论上nodejs有自带，但是似乎webpack默认不引入相关依赖，需要解决依赖问题，不能简单直接使用，似乎不如引入外部库方便
-          // 实测如果是webpack3就不会报错
-          // nodejs 自带的 crypto模块 处理证书
-          // let publicKey = Certificate.exportPublicKey(reader.result);
-          // console.log('nodejs的crypto解析出来的公钥：\n' + publicKey);
+          // 打印证书的有效期
+          console.log('Not before: ' + cert.getNotBefore())
+          console.log('Not after: ' + cert.getNotAfter())
+          console.log('')
+          
+          // 开始读取扩展字段
+          if (certVersion === 3) {
+            // 获取证书 Basic Constraints 字段值
+            // 注意：API文档说9.0.0版本返回的对象和先前的格式有差异
+            const basicConstraints = cert.getExtBasicConstraints() 
+            console.log('Basic Constraints: ' + basicConstraints)
+            // console.log(basicConstraints)
+            if (basicConstraints != undefined) {
+              console.log('Basic Constraints Critical: ' + basicConstraints.critical)
+              // 实测发现，如果是末端证书，这个值会是undefinded，目前没有测出过false的情况
+              console.log('Basic Constraints isCA: ' + basicConstraints.cA)
+              // 即便是CA，也经常不设置这个值，所以很可能为undefinded
+              console.log('Basic Constraints pathLen: ' + basicConstraints.pathLen)
+              for (const key in basicConstraints) {
+                if (Object.prototype.hasOwnProperty.call(basicConstraints, key)) {
+                  const value = basicConstraints[key];
+                  console.log(`Basic Constraints Key: ${key}, Value: ${value}`);
+                }
+              }
+            } else {
+              console.log('Basic Constraints is undefined')
+            }
+            console.log('')
+          }
         }
 
         // 以文本形式读取，第二个参数是文本的编码方式，默认值为 UTF-8
