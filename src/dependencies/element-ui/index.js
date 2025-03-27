@@ -23,7 +23,9 @@ import {
   Pagination,
   DatePicker,
   Radio,
-  RadioGroup
+  RadioGroup,
+  Tabs,
+  TabPane
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -47,6 +49,8 @@ Vue.use(Pagination)
 Vue.use(DatePicker)
 Vue.use(Radio)
 Vue.use(RadioGroup)
+Vue.use(Tabs)
+Vue.use(TabPane)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox

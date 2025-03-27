@@ -26,8 +26,12 @@
         <customize-select v-model="selectedValue" :disabled="true" :options="options" :placeholder="placeholder"></customize-select>
       </el-collapse-item>
 
-      <el-collapse-item title="日期选择器 disabledDate 传参" name="4">
+      <el-collapse-item title="日期选择器 disabledDate 传参" name="dataPickerDisabledDate">
         <data-picker-disabled-date />
+      </el-collapse-item>
+
+      <el-collapse-item title="标签页形式多表单同时提交时的数据校验" name="multipleTabForm">
+        <multiple-tab-form></multiple-tab-form>
       </el-collapse-item>
     </el-collapse>
   </div>
@@ -39,6 +43,7 @@ import DataPickerDisabledDate from './datePicker/data-picker-disabled-date.vue'
 import ValidErrorMsgOptimize from './form/valid-error-msg-optimize.vue'
 import ValidErrorMsgOrignal from './form/valid-error-msg-orignal.vue'
 import CustomizeSelect from './select/customize-select.vue'
+import MultipleTabForm from './multipleTabForm/multiple-tab-form.vue'
 export default {
   data() {
     return {
@@ -62,7 +67,8 @@ export default {
     ValidErrorMsgOrignal,
     NormalCascader,
     CustomizeSelect,
-    DataPickerDisabledDate
+    DataPickerDisabledDate,
+    MultipleTabForm
   },
   methods: {
     viewSelectedValue() {
